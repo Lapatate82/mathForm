@@ -12,30 +12,33 @@ class CirclePackingMathML extends React.Component {
     }
 
     handleClick = (node) => {
-      setTimeout(() => {
-        console.log("haha");
-        const mathElements = document.getElementsByTagName("foreignObject");
-        const mathElements2 = mathElements;
+      // setTimeout(() => {
+      //   console.log("haha");
+      //   const mathElements = document.getElementsByTagName("foreignObject");
+      //   let mathElements2 = [...mathElements];
 
-        console.log(mathElements2);
-
-        for (let i = 0; i < mathElements2.length; i++){
-          console.log(mathElements[i]);
-        }
-
-        console.log(mathElements2.lenght);
+      //   const svgNS = "http://www.w3.org/2000/svg";
+      //   const svg = document.querySelector("svg");
+      //   const text = document.createElementNS(svgNS, "text");
         
-        for (let i = 0; i < mathElements2.length; i++){
-          console.log("iteration");
-          mathElements[0].remove();
-        }
+      //   for (let i = 0; i < mathElements2.length; i++){
+      //     console.log("iteration");
+          
+      //     mathElements[0].remove();
+      //     svg.appendChild(text);
 
-        for (let i = 0; i < mathElements2.length; i++){
-          console.log(mathElements[i]);
-        }
+      //   }
 
-        console.log("éléments supprimés");
-      }, 500);
+      //   mathElements2 = [...mathElements];
+
+      //   for (let i = 0; i < mathElements2.length; i++){
+      //     console.log(mathElements[i]);
+      //   }
+
+      //   console.log("éléments supprimés");
+      // }, 500);
+
+
 
       this.setState((prevState) => ({
           zoomedId: prevState.zoomedId === node.id ? null : node.id,
@@ -45,7 +48,7 @@ class CirclePackingMathML extends React.Component {
 
     filterLabels = (label) => {
         const { profondeurNode } = this.state;
-        return label.node.depth < 2 + profondeurNode && label.node.depth >= profondeurNode;
+        return label.node.depth < 15 + profondeurNode && label.node.depth >= profondeurNode;
     }
 
 
@@ -62,7 +65,6 @@ class CirclePackingMathML extends React.Component {
     
 
     componentDidMount(){
-      console.log("huhu");
       setTimeout(() => {
         const textElements = document.getElementsByTagName("text");
         for (let i = 0; i < textElements.length; i++){
@@ -152,18 +154,7 @@ class CirclePackingMathML extends React.Component {
 
     // }
 
-      // Array.from(textElements).forEach((textEl) => {
-      //   console.log("po,ionubyvtyc");
-      //   const mathMLString = textEl.textContent;
 
-      //   // Crée un fragment DOM à partir du string MathML
-      //   const parser = new DOMParser();
-      //   const mathDoc = parser.parseFromString(mathMLString, "application/xml");
-      //   const mathElement = mathDoc.documentElement;
-
-      //   // Remplace la balise <text> par le MathML dans le DOM
-      //   textEl.replaceWith(mathElement);
-      // });
     
 
     render() {
